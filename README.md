@@ -43,3 +43,29 @@ Write this middlware after the Invalid Path Middleware
     app.use((error,req,res,next)=>{
         res.send({message:`error occured ${error.message}`})
     })
+
+# Creating seperate APIs Based On Path
+
+## Step 1:
+
+    create seperate files for seperate APIS
+    add Extra path to differentiate each API
+
+## Step 2:
+
+    create router in reach API
+    const express=require('express')
+    const userApp=express.Router() or const productApp=express.Router()
+
+## Step 3:
+
+Export These Routers to Main Server
+
+    module.exports=userApp;
+    module.exports=productApp;
+
+## Step 4:
+
+    Import these routers in Server.js
+
+    const userApp=require('./Apis/userApi.js')
